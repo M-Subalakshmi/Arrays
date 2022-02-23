@@ -19,15 +19,14 @@ Example 4:
 Input: nums = [1]
 Output: [1]
 
-class Solution:
-    def sortColors(self, nums: List[int]) -> None:
-        """
-        Do not return anything, modify nums in-place instead.
-        """
-        for i in range(len(nums)):
-            for j in range(i,len(nums)):
-                if nums[i]>nums[j]:
-                    nums[i]^=nums[j]
-                    nums[j]^=nums[i]
-                    nums[i]^=nums[j]
-        
+void sortColors(int* nums, int numsSize){
+    for(int i=0;i<numsSize;i++){
+        for(int j=i;j<numsSize;j++){
+            if(nums[i]>nums[j]){
+                nums[i]^=nums[j];
+                nums[j]^=nums[i];
+                nums[i]^=nums[j];
+            }
+        }
+    }
+}
